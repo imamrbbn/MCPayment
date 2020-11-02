@@ -1,14 +1,27 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+
 *, ::after, ::before {
   box-sizing: border-box;
 }
 
+/** BODY */
+
 .App {
   text-align: center;
+  font-family: "Fira Sans", sans-serif;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+.container {
+  width: 100%;
+  padding-right: 10vh;
+  padding-left: 10vh;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -41,16 +54,7 @@
   }
 }
 
-.card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  min-width: 0;
-  background-color: #fff;
-  background-clip: border-box;
-  border: 1px solid rgba(0,0,0,.125);
-  border-radius: .25rem;
-}
+/** DASHBOARD */
 
 .row {
   display: flex;
@@ -63,37 +67,174 @@
   flex-basis: 0;
   flex-grow: 1;
   max-width: 100%;
+  max-height: 70vh;
 }
 
-.search-box {
-  display: block;
-  width: 100%;
-  height: calc(1.5em + .75rem + 2px);
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #495057;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid #ced4da;
+.card-margin {
+  margin-top: 25px;
+}
+
+/** CARD ITEM */
+
+.card {
+  position: relative;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
   border-radius: .25rem;
-  transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  background-color: #ffffff9e;
 }
 
-input {
-  overflow: visible;
-  margin: 0;
-  font-family: inherit;
+.card-img-top {
+  margin: auto;
+  margin-top: 10px;
+  border-radius: .75rem;
+  flex-shrink: 0;
+  width: 100%;
+  max-height: 40%;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
 }
 
-/* .bd-example-row .row>.col, .bd-example-row .row>[class^=col-] {
-  padding-top: .75rem;
-  padding-bottom: .75rem;
-  background-color: rgba(86,61,124,.15);
-  border: 1px solid rgba(86,61,124,.2);
-} */
+.card-img-top :hover {
+  width: 65% !important;
+}
+
+h4 {
+  color: #bb2205;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 0 1.25rem 0.5rem 1.25rem;
+}
+
+.card-footer {
+  padding: .75rem 1.25rem;
+  background-color: rgba(0,0,0,.03);
+  border-top: 1px solid rgba(0,0,0,.125);
+}
+
+.card-text {
+  font-size: 15px;
+}
+
+.btn {
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #bb2205;
+  border-color: #bb2205;
+  font-size: 15px;
+  box-shadow: 0 .25rem 1rem rgba(0,0,0,.15)!important;
+}
+
 
 *, ::after, ::before {
   box-sizing: border-box;
+}
+
+/** Responsive breakpoints */
+
+@media (max-width: 419.98px) { 
+  .btn-primary {
+    font-size: 8px;
+  }
+
+  .card-text {
+    font-size: 10px !important;
+  }
+
+  h4 {
+    font-size: 0.7em;
+  }
+
+  .col {
+    height: 40vh;
+  }
+
+  .card {
+    height: 40vh !important;
+  }
+  
+  .overflow {
+    overflow: auto;
+    max-height: 40%;
+  }
+
+  .card-footer {
+    padding: 0.25rem;
+  }
+
+  .card-body {
+    padding: 0 0.25rem 0.15rem 0.25rem;
+  }
+
+  .container {
+    width: 100%;
+    padding-right: 5vh;
+    padding-left: 5vh;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+ }
+
+@media (min-width: 420px) and (max-width: 649.98px) { 
+
+  .btn-primary, .card-text {
+    font-size: 11px !important;
+  }
+
+  h4 {
+    font-size: 0.8em;
+  }
+
+  .col {
+    height: 50vh;
+  }
+
+  .card {
+    height: 50vh !important;
+  }
+  
+  .overflow {
+    overflow: auto;
+    max-height: 40%;
+  }
+
+  .card-body {
+    padding: 0 0.25rem 0.15rem 0.25rem;
+  }
+
+ }
+
+@media (min-width: 650px) and (max-width: 767.98px) { 
+  
+  .btn-primary, .card-text {
+    font-size: 12px !important;
+  }
+
+ }
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+
+  .btn-primary, .card-text {
+    font-size: 13px !important;
+  }
+
 }

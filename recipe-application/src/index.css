@@ -10,6 +10,8 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
+  background-image: url('./assets/bg-wave.svg');
+  background-size: 250%;
 }
 
 code {

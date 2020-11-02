@@ -16,20 +16,20 @@ export function SET_ERROR (status) {
    
 }
 
-export function SET_RECIPES (status) {
+export function SET_RECIPES (data) {
 
   return {
     type: "SET_RECIPES",
-    payload: status
+    payload: data
   }
    
 }
 
-export function SET_RECIPE (status) {
+export function SET_RECIPE (data) {
 
   return {
     type: "SET_RECIPE",
-    payload: status
+    payload: data
   }
    
 }

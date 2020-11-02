@@ -1,46 +1,45 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 
-// import logo from '../logo.svg';
 import { FETCH_RECIPES } from '../store/actions/RecipeAction'
 import RecipeCard from '../components/RecipeCard'
+import Loading from '../components/Loading'
+import FormErrors from '../components/errors/FormErrors'
+import FetchError from '../components/errors/FetchError'
 
 export default function HomePage() {
   const dispatch = useDispatch()
-  const [key, setKey] = useState('')
+
   const recipes = useSelector(state => state.RecipeReducer.recipes)
   const loading = useSelector(state => state.RecipeReducer.loading)
-
+  const key = useSelector(state => state.SearchKeyReducer.key)
+  const category = useSelector(state => state.SearchKeyReducer.category)
+  const formError = useSelector(state => state.SearchKeyReducer.error)
+  const fetchError = useSelector(state => state.RecipeReducer.error)
+  
   useEffect(() => {
     dispatch(FETCH_RECIPES())
   }, [dispatch])
 
-  if(loading) <p>{'loading'}</p>;
+  if (loading) return <Loading/>
+  if (formError) return <FormErrors/>
+  if (fetchError) return <FetchError/>
 
-  function handleSearchRecipe(event) {
-    setKey(event.target.value)
-  }
-  
+
   return (
-    <div>
-
-      {/* <img src={logo} className="App-logo" alt="logo" /> */}
-
-      <div className="search-box">
-        <input type="text" placeholder="input here.." 
-          onChange={handleSearchRecipe}/>
-      </div>
-
+    <div className="container">
       <div className="row">
+        
         {recipes && recipes.filter(eachRecipe => 
-          eachRecipe.title.toLowerCase()
+          eachRecipe[category].toLowerCase()
           .includes(key.toLowerCase()))
           .map((eachRecipe, index) => {
             return(
-              <div className="col">
+              <div className="col card-margin">
                 <RecipeCard 
+                  key={index}
                   recipe = {eachRecipe}
-                  key = {index} 
+                  
                   />
               </div>
             )
