@@ -43,7 +43,7 @@ export function FETCH_RECIPES () {
       method: "GET",
       headers: {
         "x-rapidapi-host": "recipe-puppy.p.rapidapi.com",
-        "x-rapidapi-key": "762d71b17amsh46c955619dd85d0p195316jsn98298eca93bf",
+        "x-rapidapi-key": "762d71b17amsh46c955619dd85d0p195316jsn98298eca93bf", //it should be hidden
         "Content-Type": "application/json"
       }
     })
